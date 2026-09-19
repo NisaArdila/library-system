@@ -6,10 +6,13 @@
 
     <ul>
         @foreach($books as $book)
-             <li>{{ $book }}</li>
+             <li>
+                <strong>{{ $book['judul'] }}</strong> 
+                (Penulis: {{ $book['penulis'] }}, Tahun: {{ $book['tahun'] }})
+             </li>
         @endforeach
     </ul>
-
+    
     @if($stock > 0)
         <p>Buku tersedia.</p>
     @else
