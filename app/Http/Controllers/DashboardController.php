@@ -9,7 +9,7 @@ class DashboardController extends Controller
     public function index()
     {
     // Membuat data jumlah dummy
-    $totalBooks = 5;
+    $totalBooks = 10;
     $totalMembers = 5;
     $totalCategories = 5;
 

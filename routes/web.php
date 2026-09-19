@@ -10,22 +10,12 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-// Route::get('/books', function () {
-//     // return 'Daftar Buku';
-//     return view('books.index');
-// });
-
 Route::get('/books', [BookController::class, 'index']);
 Route::get('/categories', [CategoryController::class, 'index']);
 Route::get('/members', [MemberController::class, 'index']);
 Route::get('/dashboard', [DashboardController::class, 'index']);
+
+// Cukup gunakan baris ini untuk halaman detail buku:
 Route::get('/books/{id}', [BookController::class, 'show']);
 
-Route::get('/books/{id}', function ($id) {
- return 'ID Buku: ' . $id;
-});
-
-Route::get('/members/{id}', function ($id) {
- return 'ID Member: ' . $id;
-});
 
