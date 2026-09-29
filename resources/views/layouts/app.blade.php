@@ -20,9 +20,8 @@
         <main>
             @yield('content')
         </main>
-        <footer>
-            <hr>
-            <p>Library System</p>
+        <footer style="margin-top: 30px; padding: 15px; border-top: 1px solid #ddd;">
+            <p>© 2026 Library System</p>
         </footer>
     </body>
 </html>
