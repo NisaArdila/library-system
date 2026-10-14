@@ -1,4 +1,3 @@
-
 @extends('layouts.app')
 
 @section('title', 'Tambah Buku')
@@ -6,41 +5,75 @@
 @section('content')
     <h2>Tambah Buku</h2>
 
-    @if ($errors->any())
-        <ul>
-            @foreach ($errors->all() as $error)
-                <li>{{ $error }}</li>
-            @endforeach
-        </ul>
-    @endif
-
     <form action="{{ route('books.store') }}" method="POST">
         @csrf
 
-        <p>
-            <label>Judul Buku</label><br>
-            <input type="text" name="title" value="{{ old('title') }}" required>
-        </p>
+        <div>
+            <label for="title">Judul Buku</label><br>
+            <input
+                type="text"
+                id="title"
+                name="title"
+                value="{{ old('title') }}"
+            >
+            @error('title')
+                <p style="color: red;">{{ $message }}</p>
+            @enderror
+        </div>
 
-        <p>
-            <label>Penulis</label><br>
-            <input type="text" name="author" value="{{ old('author') }}" required>
-        </p>
+        <br>
 
-        <p>
-            <label>Tahun Terbit</label><br>
-            <input type="number" name="year" value="{{ old('year') }}" min="1" max="9999" required>
-        </p>
+        <div>
+            <label for="author">Penulis</label><br>
+            <input
+                type="text"
+                id="author"
+                name="author"
+                value="{{ old('author') }}"
+            >
+            @error('author')
+                <p style="color: red;">{{ $message }}</p>
+            @enderror
+        </div>
 
-        <p>
-            <label>Stok</label><br>
-            <input type="number" name="stock" value="{{ old('stock') }}" min="0" required>
-        </p>
+        <br>
+
+        <div>
+            <label for="year">Tahun Terbit</label><br>
+            <input
+                type="number"
+                id="year"
+                name="year"
+                value="{{ old('year') }}"
+            >
+            @error('year')
+                <p style="color: red;">{{ $message }}</p>
+            @enderror
+        </div>
+
+        <br>
+
+        <div>
+            <label for="stock">Stok</label><br>
+            <input
+                type="number"
+                id="stock"
+                name="stock"
+                value="{{ old('stock') }}"
+            >
+            @error('stock')
+                <p style="color: red;">{{ $message }}</p>
+            @enderror
+        </div>
+
+        <br>
 
         <button type="submit">Simpan Buku</button>
     </form>
 
-    <p>
-        <a href="{{ route('books.index') }}">Kembali ke Daftar Buku</a>
-    </p>
+    <br>
+
+    <a href="{{ route('books.index') }}">
+        Kembali ke Daftar Buku
+    </a>
 @endsection
