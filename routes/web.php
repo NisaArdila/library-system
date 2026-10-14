@@ -1,3 +1,4 @@
+
 <?php
 
 use Illuminate\Support\Facades\Route;
@@ -10,12 +11,13 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/books', [BookController::class, 'index']);
-Route::get('/categories', [CategoryController::class, 'index']);
-Route::get('/members', [MemberController::class, 'index']);
-Route::get('/dashboard', [DashboardController::class, 'index']);
+Route::resource('books', BookController::class);
 
-// Cukup gunakan baris ini untuk halaman detail buku:
-Route::get('/books/{id}', [BookController::class, 'show']);
+Route::get('/categories', [CategoryController::class, 'index'])
+    ->name('categories.index');
 
+Route::get('/members', [MemberController::class, 'index'])
+    ->name('members.index');
 
+Route::get('/dashboard', [DashboardController::class, 'index'])
+    ->name('dashboard');

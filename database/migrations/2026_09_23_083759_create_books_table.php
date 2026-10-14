@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('title');
             $table->string('author');
-            $table->string('year');
+            $table->year('year');
             $table->integer('stock');
             $table->timestamps();
         });
