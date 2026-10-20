@@ -1,4 +1,3 @@
-
 @extends('layouts.app')
 
 @section('title', 'Daftar Buku')
@@ -29,6 +28,7 @@
                 <th>ID</th>
                 <th>Judul</th>
                 <th>Penulis</th>
+                <th>Kategori</th>
                 <th>Tahun Terbit</th>
                 <th>Stok</th>
                 <th>Status</th>
@@ -37,16 +37,17 @@
         </thead>
 
         <tbody>
-            @forelse($books as $book)
+            @forelse ($books as $book)
                 <tr>
                     <td>{{ $book->id }}</td>
                     <td>{{ $book->title }}</td>
                     <td>{{ $book->author }}</td>
+                    <td>{{ $book->category?->name ?? 'Belum ada kategori' }}</td>
                     <td>{{ $book->year }}</td>
                     <td>{{ $book->stock }}</td>
 
                     <td>
-                        @if($book->stock > 0)
+                        @if ($book->stock > 0)
                             Buku tersedia
                         @else
                             Buku sedang habis
@@ -81,7 +82,7 @@
                 </tr>
             @empty
                 <tr>
-                    <td colspan="7">Belum ada data buku.</td>
+                    <td colspan="8">Belum ada data buku.</td>
                 </tr>
             @endforelse
         </tbody>

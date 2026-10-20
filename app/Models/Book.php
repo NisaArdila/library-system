@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Book extends Model
 {
@@ -10,6 +11,11 @@ class Book extends Model
         'title', 
         'author', 
         'year', 
-        'stock'
+        'stock',
+        'category_id'
     ];
+
+    public function category() : BelongsTo {
+        return $this->belongsTo(Category::class);
+    }
 }

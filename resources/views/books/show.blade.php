@@ -1,4 +1,3 @@
-
 @extends('layouts.app')
 
 @section('title', 'Detail Buku')
@@ -10,10 +9,11 @@
     <p><strong>ID:</strong> {{ $book->id }}</p>
     <p><strong>Judul:</strong> {{ $book->title }}</p>
     <p><strong>Penulis:</strong> {{ $book->author }}</p>
+    <p><strong>Kategori:</strong> {{ $book->category?->name ?? 'Belum ada kategori' }}</p>
     <p><strong>Tahun Terbit:</strong> {{ $book->year }}</p>
     <p><strong>Stok:</strong> {{ $book->stock }}</p>
 
-    @if($book->stock > 0)
+    @if ($book->stock > 0)
         <p>Status: Buku tersedia</p>
     @else
         <p>Status: Buku sedang habis</p>
